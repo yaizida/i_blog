@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+  Мейн Пейг
+{% endblock %}
+{% block content %}
+      <div class="container py-5">
+        <h1>Лента записей</h1>
+        {% for post in posts %}
+        <hr>
+        <article>
+          <ul>
+            <li>
+              Место: {{ post.location }}
+            </li>
+            <li>
+              Дата: {{ post.date }}
+            </li>
+            <li>
+              Категория: <a>{{ post.category }}</a>
+            </li>
+          </ul>
+          {{ post.text|slice:":10" }}
+          <p>
+            Всю ночь и весь день шел дождь и дул сильный ...
+          </p>
+          <a href="detail.html">Читать полный текст</a>
+        </article>
+        {% endfor %}
+{% endblock %}
