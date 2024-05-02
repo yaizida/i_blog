@@ -2,23 +2,23 @@
     <nav class="navbar navbar-light" style="background-color: Gold">
       <div class="container">
         {% load static %}
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{% url 'blogs:index' %}">
           <img src={% static "img/logo.png" %} width="50" height="50" class="d-inline-block align-top" alt="">
-          Уеблог
+          У*блог
         </a>
         <ul class="nav  nav-pills">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{% url 'blogs:index' %}">
               Лента записей
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="about.html">
+            <a class="nav-link" href="{% url 'pages:about' %}">
               О проекте
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="rules.html">
+            <a class="nav-link" href="{% url 'pages:rules' %}">
               Наши правила
             </a>
           </li>

@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.views import View
 
 from .test_utils import POSTS
 
@@ -9,9 +8,11 @@ def index(request):
     return render(request, 'blogs/index.html', context)
 
 
-def post_detail(request):
-    pass
+def post_detail(request, pk):
+    context = {'post': POSTS[pk]}
+    return render(request, 'blogs/detail.html', context)
 
 
-def category_posts(request):
-    pass
+def category_posts(request, category_slug):
+    context = {'slug': category_slug}
+    return render(request, 'blogs/category.html', context)

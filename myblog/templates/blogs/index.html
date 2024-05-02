@@ -19,11 +19,11 @@
               Категория: <a>{{ post.category }}</a>
             </li>
           </ul>
-          {{ post.text|slice:":10" }}
+
           <p>
-            Всю ночь и весь день шел дождь и дул сильный ...
+            {{ post.text|truncatewords:10 }}
           </p>
-          <a href="detail.html">Читать полный текст</a>
+          <a href="{% url 'blogs:detail' post.id %}">Читать полный текст</a>
         </article>
         {% endfor %}
 {% endblock %}
