@@ -1,5 +1,7 @@
 from django.db import models
 
+from user.models import User
+
 
 # Create your models here.
 class Post(models.Model):
@@ -14,7 +16,7 @@ class Post(models.Model):
     )
     pub_date = models.DateField()
     author = models.ForeignKey(
-        'user.User',
+        User,
         on_delete=models.CASCADE,
     )
     location = models.ForeignKey(
@@ -37,8 +39,27 @@ class Post(models.Model):
 
 
 class Category(models.Model):
-    pass
+    title = models.CharField(
+        max_length=256,
+        blank=False
+        )
+    description = models.TextField(blank=False)
+    slug = models.SlugField(
+        unique=True,
+        blank=False
+    )
+    is_published = models.BooleanField(default=True,)
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
 class Location(models.Model):
-    pass
+    name = models.CharField(
+        max_length=256,
+        blank=False
+
+    )
+    is_published = models.BooleanField(
+        default=True,
+        blank=False
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
